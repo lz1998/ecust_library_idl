@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package dto;
+option go_package = "dto";
+
+
+message EcustBook{
+    int64 id = 1;
+    string author = 2;
+    string title = 3;
+    string press = 4;
+    int32 year = 5;
+    string book_id = 6;
+    string isbn = 7;
+    string institution = 8;
+    int32 status = 9;
+    int64 created_at = 10;
+    int64 updated_at = 11;
+}
+
+// ^  查询图书
+// | POST: /ecust/book/list
+// |
+message ListBookReq{
+    repeated string author = 1;
+    repeated string title = 2;
+    repeated string press = 3;
+    int32 start_year = 4;
+    int32 end_year = 5;
+    repeated string book_id = 6;
+    repeated string isbn = 7;
+    repeated string institution = 8;
+}
+message ListBookResp{
+    repeated EcustBook books = 1;
+}
+
+// ^  添加图书
+// | POST: /ecust/book/create
+// |
+message CreateBookReq{
+    repeated EcustBook books = 1;
+}
+message CreateBookResp{
+}
+
+// ^  修改图书
+// | POST: /ecust/book/update
+// |
+message UpdateBookReq{
+    repeated EcustBook books = 1;
+}
+message UpdateBookResp{
+
+}
+
+service EcustBookService{
+    rpc ListBOok(ListBookReq)returns (ListBookResp);
+    rpc CreateBook(CreateBookReq)returns (CreateBookResp);
+    rpc UpdateBOok(UpdateBookReq)returns (UpdateBookResp);
+}
