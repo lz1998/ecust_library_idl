@@ -55,7 +55,7 @@ message UpdateBookResp{
 }
 
 service EcustBookService{
-    rpc ListBOok(ListBookReq)returns (ListBookResp);
+    rpc ListBook(ListBookReq)returns (ListBookResp);
     rpc CreateBook(CreateBookReq)returns (CreateBookResp);
     rpc UpdateBOok(UpdateBookReq)returns (UpdateBookResp);
 }
