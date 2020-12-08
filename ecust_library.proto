@@ -85,6 +85,16 @@ message UpdateAdminReq{
 message UpdateAdminResp{
 }
 
+message LoginReq{
+    string username = 1;
+    string password = 2;
+}
+message LoginResp{
+    bool success = 1;
+    string msg = 2;
+    string token = 3;
+}
+
 service EcustBookService{
     rpc ListBook(ListBookReq)returns (ListBookResp);
     rpc CreateBook(CreateBookReq)returns (CreateBookResp);
@@ -92,4 +102,5 @@ service EcustBookService{
     rpc CreateAdmin(CreateAdminReq)returns (CreateAdminResp);
     rpc ListAdmin(ListAdminReq)returns (ListAdminResp);
     rpc UpdateAdmin(UpdateAdminReq)returns (UpdateAdminResp);
+    rpc Login(LoginReq)returns (LoginResp);
 }
