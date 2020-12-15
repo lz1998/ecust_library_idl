@@ -35,6 +35,7 @@ message ListBookReq{
 }
 message ListBookResp{
     repeated EcustBook books = 1;
+    int32 total = 2;
 }
 
 // ^  添加图书
